@@ -9,7 +9,8 @@ class App extends Component {
     clickedFlags: [],
     score: 0,
     topScore: 0,
-    status: 'Click an image to start!'
+    status: 'Click an image to start!',
+    lose: ''
   };
 
   componentDidMount() {
@@ -29,11 +30,13 @@ class App extends Component {
   }
 
   flagClick = (flag) => {
+    this.setState({ lose: '' })
     if (this.state.clickedFlags.includes(flag)) {
       this.setState({ 
         score: 0,
          status: 'You lost!',
-         clickedFlags: []
+         clickedFlags: [],
+         lose: 'animate__wobble'
          })
     } else {
       this.setState({
@@ -54,7 +57,7 @@ class App extends Component {
       <div>
         <Navbar values={this.state} />
         <Header />
-        <CardDeck order={this.state.order} flagClick={this.flagClick} />
+        <CardDeck order={this.state.order} flagClick={this.flagClick} style={this.state.lose} />
       </div>
     );
   }
