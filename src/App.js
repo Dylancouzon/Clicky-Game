@@ -13,12 +13,13 @@ class App extends Component {
     lose: ''
   };
 
+  // Shuffle the images on page load
   componentDidMount() {
     this.shuffleArray();
   }
 
+    //Shuffle the images, each number match an image ID
   shuffleArray = () => {
-    // Maybe need to make this Async ??
     let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
     for (let i = array.length - 1; i > 0; i--) {
@@ -29,16 +30,21 @@ class App extends Component {
 
   }
 
+  // Function executed each time the User click on an image.
   flagClick = (flag) => {
-    this.setState({ lose: '' })
+    this.setState({ lose: '' });
+
+    // If the user has already clicked on that image, the game is lost.
     if (this.state.clickedFlags.includes(flag)) {
       this.setState({ 
         score: 0,
-         status: 'You lost!',
+         status: 'You lost! Play Again!',
          clickedFlags: [],
          lose: 'animate__wobble'
          })
+
     } else {
+      //Increment score and High score
       this.setState({
         clickedFlags: [...this.state.clickedFlags, flag],
         score: this.state.score + 1,
@@ -48,11 +54,11 @@ class App extends Component {
       }
 
     }
+    //Shuffle the images again
     this.shuffleArray();
   }
 
   render() {
-    console.log(this.state.clickedFlags)
     return (
       <div>
         <Navbar values={this.state} />
