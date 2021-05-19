@@ -1,9 +1,13 @@
 import React from 'react';
 import Card from "./Card";
-function CardDeck() {
+function CardDeck({order}) {
     return (
         <div className="card-deck" >
-            <Card />
+            {order.map(flag => (
+                <Card
+                    image={flag}
+                />
+            ))}
         </div>
     )
 }
