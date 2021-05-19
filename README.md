@@ -21,10 +21,11 @@ Project for UC Berkeley coding Bootcamp
 In this game, you need to Click on an image to earn points, the images are then shuffled and if you click the same image twice, you will lose the game.
 
 ## How to install
+Have node installed on you machine then run the command :
+
 ```
 npm install
 ```
-
 
 ## How to use it
 
@@ -55,7 +56,7 @@ The Mongoose aggregate method allow us to pull data from multiple rows and group
 
 ## Deployed Link
 
-[See Live Site](https://fitness-tracker-dc.herokuapp.com/)
+[See Live Site](https://dylancouzon.github.io/Clicky-Game/)
 
 
 ## Author Links
